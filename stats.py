@@ -21,6 +21,8 @@ def char_count(path):
         else:
             char_counts[char] = 1
 
-    return dict(sorted(char_counts.items()))
+    return char_counts
 
-
+# sorts the input dictionary by pair values
+def sort_dict(char_dict):
+    return dict(sorted(char_dict.items(), key=lambda item:item[1], reverse=True))

@@ -1,4 +1,4 @@
-from stats import num_words, char_count
+from stats import num_words, char_count, sort_dict
 
 
 def main():
@@ -10,7 +10,11 @@ def main():
 
     char_dict = char_count(frankenstein_path)
 
-    print(char_dict)
+    sorted_dict = sort_dict(char_dict)
+
+    for e in sorted_dict:
+        if e.isalpha():
+            print(f"{e}: {sorted_dict[e]}")
 
 if __name__ == "__main__":
     main()
