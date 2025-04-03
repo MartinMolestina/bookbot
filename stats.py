@@ -16,11 +16,11 @@ def char_count(path):
     text = open_file(path).lower()
 
     for char in text:
-        if cahr in char_counts:
+        if char in char_counts:
             char_counts[char] += 1
         else:
             char_counts[char] = 1
 
-    return char_counts
+    return dict(sorted(char_counts.items()))
 
 
