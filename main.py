@@ -1,20 +1,33 @@
 from stats import num_words, char_count, sort_dict
-
+import sys
 
 def main():
-    frankenstein_path = "./books/frankenstein.txt"
 
-    words = num_words(frankenstein_path)
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
 
-    print(f"{words} words found in the document")
+    else:
 
-    char_dict = char_count(frankenstein_path)
+        path = sys.argv[1]
 
-    sorted_dict = sort_dict(char_dict)
+        words = num_words(path)
 
-    for e in sorted_dict:
-        if e.isalpha():
-            print(f"{e}: {sorted_dict[e]}")
+        char_dict = char_count(path)
+
+        sorted_dict = sort_dict(char_dict)
+
+        print("============ BOOKBOT ============")
+        print(f"Analyzing book found at {path}...")
+        print("----------- Word Count ----------")
+        print(f"Found {words} total words")
+        print("--------- Character Count -------")
+
+        for e in sorted_dict:
+            if e.isalpha():
+                print(f"{e}: {sorted_dict[e]}")
+
+        print("============= END ===============")
 
 if __name__ == "__main__":
     main()
